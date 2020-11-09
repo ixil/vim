@@ -1,0 +1,3 @@
+[submodule "src/wlclip"]
+	path = src/wlclip
+	url = git@github.com:bugaevc/wl-clipboard.git

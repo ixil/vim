@@ -1398,6 +1398,24 @@ ALL_GUI_PRO  = gui.pro gui_gtk.pro gui_motif.pro gui_xmdlg.pro gui_athena.pro gu
 
 # }}}
 
+WLCLIP_SRC = \
+	      #protocol_headers TODO
+        util/string.c \
+        util/files.c \
+        util/misc.c \
+        types/source.c \
+        types/offer.c \
+        types/device.c \
+        types/device-manager.c \
+        types/keyboard.c \
+        types/seat.c \
+        types/shell.c \
+        types/shell-surface.c \
+        types/popup-surface.c \
+        types/registry.c \
+        types/copy-action.c \
+
+
 TERM_DEPS = \
 	libvterm/include/vterm.h \
 	libvterm/include/vterm_keycodes.h \
@@ -1699,6 +1717,7 @@ SRC =	$(BASIC_SRC) \
 	$(GUI_SRC) \
 	$(TERM_SRC) \
 	$(XDIFF_SRC) \
+	$(WLCLIP_SRC) \
 	$(LUA_SRC) \
 	$(MZSCHEME_SRC) \
 	$(PERL_SRC) \
@@ -3628,6 +3647,50 @@ objects/xhistogram.o: xdiff/xhistogram.c $(XDIFF_INCL)
 
 objects/xpatience.o: xdiff/xpatience.c $(XDIFF_INCL)
 	$(CCCDIFF) -o $@ xdiff/xpatience.c
+
+
+CCCWLCLIP = $(CCC_NF) $(ALL_CFLAGS)
+objects/wlclip/string.o: util/string.c
+	$(CCCWLCLIP) -o $@ util/string.c
+
+objects/wlclip/files.o: util/files.c
+	$(CCCWLCLIP) -o $@ util/files.c
+
+objects/wlclip/misc.o: util/misc.c
+	$(CCCWLCLIP) -o $@ util/misc.c
+
+objects/wlclip/source.o: types/source.c
+	$(CCCWLCLIP) -o $@ types/source.c
+
+objects/wlclip/offer.o: types/offer.c
+	$(CCCWLCLIP) -o $@ types/offer.c
+
+objects/wlclip/device.o: types/device.c
+	$(CCCWLCLIP) -o $@ types/device.c
+
+objects/wlclip/device-manager.o: types/device-manager.c
+	$(CCCWLCLIP) -o $@ types/device-manager.c
+
+objects/wlclip/keyboard.o: types/keyboard.c
+	$(CCCWLCLIP) -o $@ types/keyboard.c
+
+objects/wlclip/seat.o: types/seat.c
+	$(CCCWLCLIP) -o $@ types/seat.c
+
+objects/wlclip/shell.o: types/shell.c
+	$(CCCWLCLIP) -o $@ types/shell.c
+
+objects/wlclip/shell-surface.o: types/shell-surface.c
+	$(CCCWLCLIP) -o $@  types/shell-surface.c
+
+objects/wlclip/popup-surface.o: types/popup-surface.c
+	$(CCCWLCLIP) -o $@  types/popup-surface.c
+
+objects/wlclip/registry.o: types/registry.c
+	$(CCCWLCLIP) -o $@  types/registry.c
+
+objects/wlclip/copy-action.o: types/copy-action.c
+	$(CCCWLCLIP) -o $@  types/copy-action.c
 
 
 Makefile:
